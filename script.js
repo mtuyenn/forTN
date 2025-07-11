@@ -2,7 +2,7 @@ const yesBtn = document.querySelector('.btn--yes');
 const noBtn = document.querySelector('.btn--no');
 
 yesBtn.addEventListener('click', () => {
-  alert('Yayyy! Bé đã tha thứ cho anh rồi 😍');
+  window.location.href = "thankyou.html";
 });
 
 noBtn.addEventListener('mouseover', () => {
