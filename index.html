@@ -1,34 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Valentine</title>
-  </head>
-  <body>
-    <main class="container">
-      <img
-        class="cat-img"
-        src="https://github.com/mtuyenn/forTN/blob/main/avt.jpg?raw=true"
-        alt="Picture of a cat"
-      />
-      <p class="title">
-        Bé iuu có thấy mtuyen(chongg em) đẹpp trai không 😼<br /><span
-          >Bé hong chọn hoặc thoát là em thấy đúng 😚</span
-        >
-      </p>
-      <div class="buttons">
-        <button type="button" class="btn btn--yes">cóa, ☀️ đẹpp trai nhatt</button>
-        <button type="button" class="btn btn--no">hongg lêu lêu 😝</button>
-      </div>
-    </main>
-    <script type="module" src="script.js"></script>
-  </body>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valentine</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      padding-top: 40px;
+    }
+    .cat-img {
+      width: 300px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .title {
+      font-size: 1.3rem;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+    .title span {
+      font-size: 1.2em;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn--yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+    .btn--no {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <img class="cat-img" src="https://github.com/mtuyenn/forTN/blob/main/avt.jpg?raw=true" alt="Ảnh của bé iu"/>
+    <p class="title">
+      Bé iuu có thấy mtuyen (chồng em) đẹpp trai không 😼<br />
+      <span>Bé hong chọn hoặc thoát là em thấy đúng 😚</span>
+    </p>
+    <div class="buttons">
+      <button type="button" class="btn btn--yes">cóa, ☀️ đẹpp trai nhatt</button>
+      <button type="button" class="btn btn--no">hongg lêu lêu 😝</button>
+    </div>
+  </main>
+
+  <audio id="bg-music" src="nhacnen.mp3" autoplay loop muted></audio>
+
+  <script>
+    const yesBtn = document.querySelector('.btn--yes');
+    const noBtn = document.querySelector('.btn--no');
+
+    yesBtn.addEventListener('click', () => {
+      window.location.href = "thankyou.html";
+    });
+
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.floor(Math.random() * (window.innerWidth - 100));
+      const y = Math.floor(Math.random() * (window.innerHeight - 50));
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    document.body.addEventListener('click', () => {
+      const music = document.getElementById('bg-music');
+      music.muted = false;
+      music.play();
+    });
+  </script>
+</body>
 </html>
